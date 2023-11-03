@@ -3,6 +3,7 @@
 
 import os
 from flask import Flask
+from flask_cors import CORS
 
 
 def create_app(test_config=None):
@@ -16,6 +17,7 @@ def create_app(test_config=None):
     # that configuration files are relative to the instance folder located outside the
     # current directory.
     app = Flask(__name__, instance_relative_config=True)
+    CORS(app)
     # Sets default configurations that the app will use.
     app.config.from_mapping(
         SECRET_KEY='dev',  # Used for data safety -- should be overridden for production deployment
